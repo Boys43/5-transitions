@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Transitions - CSS
+    </title>
+    <style>
+        * {
+            font-family: cursive;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            white-space: nowrap;
+        }
+
+        .transitions {
+            display: flex;
+            flex-direction: column;
+            margin: 30px;
+            align-items: center;
+            gap: 10px;
+        }
+
+        code {
+            font-size: 30px;
+            margin-bottom: 0.5rem;
+        }
+
+        .Btn1 {
+            width: 150px;
+            height: 50px;
+            border-radius: 10px;
+            background-color: brown;
+            border: none;
+            color: white;
+            box-shadow: 1px 1px 5px rgba(128, 128, 128, 0.256);
+            transition: all 0.3s ease;
+            cursor: pointer;
+
+        }
+
+        .Btn1:hover {
+            box-shadow: 1px 1px 30px rgba(128, 128, 128, 0.789);
+            transform: scale(1.05);
+            background-color: rgb(188, 82, 82);
+        }
+
+        .card1 {
+            width: 250px;
+            height: 350px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            color: white;
+            background-color: orange;
+            box-shadow: 1px 1px 5px rgba(128, 128, 128, 0.256);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card1:hover {
+            transform: skew(-2deg, -4deg);
+            box-shadow: 20px 20px 30px rgba(128, 128, 128, 0.717);
+            background-color: rgb(247, 190, 83);
+        }
+
+        .card2 {
+            width: 250px;
+            height: 350px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            font-size: 20px;
+            background-image: url(img2.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            box-shadow: 10px 10px 20px rgba(128, 128, 128, 0.256);
+            cursor: pointer;
+        }
+
+        .overlay {
+            width: 100%;
+            height: 100%;
+            background-color: yellowgreen;
+            border-radius: 10px;
+            transition: all 0.5s ease;
+        }
+
+        .card2:hover .overlay {
+            height: 0%;
+        }
+
+        .Btn2 {
+            position: relative;
+            z-index: 0;
+            width: 150px;
+            border: none;
+            color: white;
+            height: 50px;
+            border-radius: 10px;
+            background-color: rgb(255, 0, 0);
+            box-shadow: 1px 1px 5px rgba(128, 128, 128, 0.256);
+            transition: all 0.5s ease;
+        }
+
+        .Btn2::after {
+            content: "";
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            z-index: -1;
+            border-radius: 10px;
+            background-color: rgb(0, 0, 0);
+            transition: width 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .Btn2:hover {
+            box-shadow: 5px 5px 10px rgba(128, 128, 128, 0.4);
+            transform: translateY(-5px);
+        }
+        .Btn2:hover::after {
+            width: 100%;
+        }
+
+        .images-cont {
+            width: 250px;
+            height: 350px;
+            border-radius: 10px;
+            display: flex;
+            background-color: pink;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .images-cont-wrapper {
+            width: 0%;
+            height: 100%;
+            border-radius: 10px;
+            background-image: url("/download.jpeg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            transition: all 0.5s ease;
+        }
+
+        .images-cont:hover .images-cont-wrapper {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="transitions" id="transition-1">
+            <code>
+                Button Transition - 1
+            </code> 
+            <button class="Btn1">
+                Hover Me
+            </button>
+        </div>
+        <div class="transitions" id="transition-2">
+            <code>
+                Card Transition - 2
+            </code>
+            <div class="card1">
+                Card 1
+            </div>
+        </div>
+        <div class="transitions" id="transition-3">
+            <code>
+                Images Transition - 3
+            </code>
+            <div class="images-cont">
+                <div class="images-cont-wrapper">
+                </div>
+            </div>
+        </div>
+        <div class="transitions" id="transition-4">
+            <code>
+                Card 2 Transition - 4
+            </code>
+            <div class="card2">
+                <div class="overlay"></div>
+            </div>
+        </div>
+        <div class="transitions" id="transition-5">
+            <code>
+                Button Transition - 1
+            </code>
+            <button class="Btn2">
+                Hover me
+            </button>
+        </div>
+    </div>
+</body>
+
+</html>
